@@ -1,8 +1,8 @@
-USE DATABASE supplychainDB;
+USE supplychainDB;
 
 CREATE TABLE user(
     user_id INT NOT NULL,
-    user_type INT NOT NULL CHECK(user_type>=0 AND user_type<=3), --chk constr
+    user_type INT NOT NULL CHECK(user_type>=0 AND user_type<=3),
     pass VARCHAR(64), -- hash and store
     PRIMARY KEY(user_id, user_type)
 );
@@ -32,13 +32,13 @@ CREATE TABLE customer(
     c_id INT PRIMARY KEY,
     c_name VARCHAR(35) NOT NULL,
     c_city VARCHAR(30) NOT NULL,
-    c_phno NUMERIC(10) NOT NULL,,
+    c_phno NUMERIC(10) NOT NULL,
     FOREIGN KEY(c_id) REFERENCES user(user_id)
 );
 CREATE TABLE product(
     p_id INT PRIMARY KEY,
     p_name VARCHAR(35) NOT NULL,
-    p_rate NUMERIC(5,2) NOT NULL,
+    p_rate NUMERIC(9,2) NOT NULL,
     p_features VARCHAR(60)
 );
 
@@ -87,6 +87,13 @@ CREATE TABLE invoice_line(
     FOREIGN KEY(r_id) REFERENCES retailer(r_id),
     FOREIGN KEY(c_id) REFERENCES customer(c_id)
 );
+CREATE TABLE invoice(
+    inv_id INT,
+    c_id INT NOT NULL,
+    inv_date DATE,
+    PRIMARY KEY(inv_id),
+    FOREIGN KEY(c_id) REFERENCES customer(c_id)
+);
 -- qty is passed on entirely until retailer. invoiceline will have qty less than retailer stock.
 CREATE TABLE inv_has(
     inv_line_id INT,
@@ -94,11 +101,4 @@ CREATE TABLE inv_has(
     PRIMARY KEY(inv_id, inv_line_id),
     FOREIGN KEY(inv_id) REFERENCES invoice(inv_id),
     FOREIGN KEY(inv_line_id) REFERENCES invoice_line(inv_line_id)
-);
-CREATE TABLE invoice(
-    inv_id INT,
-    c_id INT NOT NULL,
-    inv_date DATE,
-    PRIMARY KEY(inv_id),
-    FOREIGN KEY(c_id) REFERENCES customer(c_id)
 );

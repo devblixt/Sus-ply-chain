@@ -40,6 +40,18 @@
 <!-- Pixel CSS -->
 <link type="text/css" href="../../css/pixel.css" rel="stylesheet">
 
+<script language=Javascript>  
+function setTwoNumberDecimal(event) {
+    this.value = parseFloat(this.value).toFixed(2);
+}
+</script>
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
 
 </head>
 
@@ -98,7 +110,7 @@
                                     <label for="text">Rate</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-money-bill-alt"></span></span>
-                                        <input type="text" class="form-control" placeholder="123" id="p_rate" required>
+                                        <input type="number" onchange="setTwoNumberDecimal" min="0.01" max="9999999" step="0.01" value="123" class="form-control" placeholder="123" id="p_rate" required>
                                     </div>  
                                 </div>
                                 <div class="form-group mb-4">

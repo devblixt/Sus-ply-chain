@@ -38,7 +38,7 @@ INSERT INTO product VALUES('50004', 'Lego Building Set', 2500.01, 'b r i c c');
 INSERT INTO product VALUES('50005', 'Plane Figurine', 534.05, 'as shown on tv');
 INSERT INTO product VALUES('50006', 'Lab Manual', 100.00, 'many pages');
 INSERT INTO product VALUES('50007', 'Laptop', 70023.24, 'with touchscreen');
-INSERT INTO product VALUES('50008', 'Chocolate Coins', 323.24, 'golden');
-INSERT INTO product VALUES('50009', 'YouTuber Merch', 8342.23, 'free copypasta');
+INSERT INTO product VALUES('50008', 'Chocolate Coins', 323.50, 'golden');
+INSERT INTO product VALUES('50009', 'YouTuber Merch', 8342.00, 'free copypasta');
 INSERT INTO product VALUES('50010', 'WTWE Goodies', 32.12, 'me pregunto que me dirias');
 

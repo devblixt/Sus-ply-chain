@@ -11,7 +11,7 @@
 // request.getRequestDispatcher("css/html/pages/sign-up.jsp").include(request, response);
 // request.sendRedirect("css/html/pages/sign-up.jsp");
 
-String site = new String("css/html/pages/sign-up.jsp");
+String site = new String("css/html/pages/sign-in.jsp");
 response.setStatus(response.SC_MOVED_TEMPORARILY);
 response.setHeader("Location", site);
 %>

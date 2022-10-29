@@ -74,13 +74,13 @@
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">Sus-ply-chain Login</h1>
                             </div>
-                            <form action="#" class="mt-4">
+                            <form action="${pageContext.request.contextPath}/LoginServlet" method="post" class="mt-4">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
                                     <label for="text">Your User ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-user-circle"></span></span>
-                                        <input type="text" class="form-control" placeholder="ID" id="userid" required>
+                                        <input type="text" class="form-control" placeholder="ID" id="userid" name="userid" required>
                                     </div>  
                                 </div>
 
@@ -91,7 +91,7 @@
                                         <label for="password">Your Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2"><span class="fas fa-unlock-alt"></span></span>
-                                            <input type="password" placeholder="Password" class="form-control" id="password" required>
+                                            <input type="password" placeholder="Password" class="form-control" id="password" name="password" required>
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
@@ -100,10 +100,10 @@
                                     <label for="text">Your User Type</label>
                                     <div class="input-group">
                                         <select name="usertype" id="usertype">
-                                            <option value="javascript">Supplier</option>
-                                            <option value="php">Distributor</option>
-                                            <option value="java">Retailer</option>
-                                            <option value="golang">Customer</option>
+                                            <option value="Supplier">Supplier</option>
+                                            <option value="Distributor">Distributor</option>
+                                            <option value="Retailer">Retailer</option>
+                                            <option value="Customer">Customer</option>
                                           </select>
                                     </div>  
                                 </div>

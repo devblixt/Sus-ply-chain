@@ -80,28 +80,28 @@
                                     <label for="email">Your User ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
-                                        <input type="text" class="form-control" placeholder="ID" id="email" required>
+                                        <input type="text" class="form-control" placeholder="ID" id="email" name="email" required>
                                     </div>  
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="email">Your name</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon3"><span class="fas fa-address-card"></span></span>
-                                        <input type="text" class="form-control" placeholder="John Green" id="name" required>
+                                        <input type="text" class="form-control" placeholder="John Green" id="name" name="name" required>
                                     </div>  
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="email">Your City</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon3"><span class="fas fa-building"></span></span>
-                                        <input type="text" class="form-control" placeholder="Mumbai" id="city" required>
+                                        <input type="text" class="form-control" placeholder="Mumbai" id="city" name="city" required>
                                     </div>  
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="password_confirm">Phone Number</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon5"><span class="fas fa-address-book"></span></span>
-                                        <input type="tel" placeholder="987654321" class="form-control" id="phone" required>
+                                        <input type="tel" placeholder="987654321" class="form-control" id="phone" name="phone" required>
                                     </div>  
                                 </div>
                                 <!-- End of Form -->
@@ -111,7 +111,7 @@
                                         <label for="password">Your Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
-                                            <input type="password" placeholder="Password" class="form-control" id="password" required>
+                                            <input type="password" placeholder="Password" class="form-control" id="password" name="password" required>
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
@@ -120,7 +120,7 @@
                                         <label for="password_confirm">Confirm Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
-                                            <input type="password" placeholder="Confirm Password" class="form-control" id="password_confirm" required>
+                                            <input type="password" placeholder="Confirm Password" class="form-control" id="password_confirm" name="password_confirm" required>
                                         </div>  
                                     </div>
                                     

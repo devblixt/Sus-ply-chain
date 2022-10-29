@@ -12,23 +12,23 @@ response.setContentType("text/html");
 if(session!=null){
 	String name = (String)session.getAttribute("userid");
 	out.print("Hello, "+name+" ! You Are Logged In. Redirecting you shortly.");
-	int utype = (int)session.getAttribute("usertype");
+	int utype = (Integer)session.getAttribute("usertype");
 	switch(utype){
 		case 0:
-			request.getRequestDispatcher("spage.jsp").include(request, response);
+			response.sendRedirect("css/html/pages/addStock.jsp");
 			break;
 		case 1:
-			request.getRequestDispatcher("dpage.jsp").include(request, response);
+			response.sendRedirect("css/html/pages/dpage.jsp");
 			break;
 		case 2:
-			request.getRequestDispatcher("rpage.jsp").include(request, response);
+			response.sendRedirect("css/html/pages/rpage.jsp");
 			break;
 		case 3:
-			request.getRequestDispatcher("cpage.jsp").include(request, response);
+			response.sendRedirect("css/html/pages/cpage.jsp");
 			break;
 		default:
 			out.print("Please login first");
-			request.getRequestDispatcher("sign-in.jsp").include(request, response);
+			response.sendRedirect("css/html/pages/sign-in.jsp");
 	}
 }
 else

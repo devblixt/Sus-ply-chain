@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 		String id = request.getParameter("userid");
 		String pwd = request.getParameter("password");
 		String utype_str = request.getParameter("usertype");
+//		System.out.println(id);
 		int utype=10;
 		switch(utype_str) {
 		    case "Supplier":
@@ -59,10 +60,11 @@ public class LoginServlet extends HttpServlet {
 				);
  		st.setString(1, id);
  		st.setInt(2, utype);
+// 		System.out.println(st.toString());
  		if(utype>=0 && utype<=3) {
      		ResultSet rset = st.executeQuery();
-     		
     		if(rset.next()){
+    		    System.out.println("tester");
     			String pass_db = rset.getString("pass");
     			System.out.println("pass hash = "+ pass_db);
     			PreparedStatement st_in = con.prepareStatement(
@@ -72,16 +74,17 @@ public class LoginServlet extends HttpServlet {
     	 		ResultSet rset_in = st_in.executeQuery();
     			rset_in.next();
     			String pass_in = rset_in.getString("hash");
-    	//		System.out.println("input hash = "+ pass_in);
+    			System.out.println("input hash = "+ pass_in);
     			
     			if(pass_in.equals(pass_db))
     			{
-    				RequestDispatcher rd = request.getRequestDispatcher("loggedin.jsp");
+    			    System.out.println("correct password");
+    				RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/loggedin.jsp");
     				session.setAttribute("userid", id);
     				session.setAttribute("usertype", utype);
     				rd.forward(request, response);
     			} else { 
-    	            RequestDispatcher rd = request.getRequestDispatcher("sign-in.jsp");
+    	            RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sign-in.jsp");
     	            out.println("<font color=red> Password is wrong. </font>"); 
     	            rd.include(request, response); 
     	        }
@@ -93,14 +96,14 @@ public class LoginServlet extends HttpServlet {
 //                rd.include(request, response); 
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('User not present!');");
-                out.println("location='sign-in.jsp';");
+                out.println("location='css/html/pages/sign-in.jsp';");
                 out.println("</script>");
             }
     		out.close();
  		} else {
  		   out.println("<script type=\"text/javascript\">");
  		    out.println("alert('Invalid user type!');");
- 		    out.println("location='sign-in.jsp';");
+ 		    out.println("location='css/html/pages/sign-in.jsp';");
  		    out.println("</script>");
  		}
 		}
