@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet {
     				session.setAttribute("usertype", utype);
     				rd.forward(request, response);
     			} else { 
-    	            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+    	            RequestDispatcher rd = request.getRequestDispatcher("sign-in.jsp");
     	            out.println("<font color=red> Password is wrong. </font>"); 
     	            rd.include(request, response); 
     	        }
@@ -93,14 +93,14 @@ public class LoginServlet extends HttpServlet {
 //                rd.include(request, response); 
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('User not present!');");
-                out.println("location='login.jsp';");
+                out.println("location='sign-in.jsp';");
                 out.println("</script>");
             }
     		out.close();
  		} else {
  		   out.println("<script type=\"text/javascript\">");
  		    out.println("alert('Invalid user type!');");
- 		    out.println("location='login.jsp';");
+ 		    out.println("location='sign-in.jsp';");
  		    out.println("</script>");
  		}
 		}

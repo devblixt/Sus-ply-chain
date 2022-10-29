@@ -28,7 +28,7 @@ if(session!=null){
 			break;
 		default:
 			out.print("Please login first");
-			request.getRequestDispatcher("login.jsp").include(request, response);
+			request.getRequestDispatcher("sign-in.jsp").include(request, response);
 	}
 }
 else
@@ -38,7 +38,7 @@ else
 	
 	out.println("<script type=\"text/javascript\">");
     out.println("alert('Please log in!');");
-    out.println("location='login.jsp';");
+    out.println("location='sign-in.jsp';");
     out.println("</script>");
 }
 out.close();
