@@ -5,7 +5,8 @@ CREATE TABLE user(
     user_type INT NOT NULL CHECK(user_type>=0 AND user_type<=3), --chk constr
     pass VARCHAR(64), -- hash and store
     PRIMARY KEY(user_id, user_type)
-)
+);
+
 CREATE TABLE supplier(
     s_id INT PRIMARY KEY,
     s_name VARCHAR(35) NOT NULL,
@@ -42,10 +43,10 @@ CREATE TABLE product(
 );
 
 CREATE TABLE has(
-    p_id INT,
     s_id INT,
+    p_id INT,
     has_qty INT CHECK(has_qty>0),
-    PRIMARY KEY(p_id, s_id),
+    PRIMARY KEY(s_id, p_id),
     FOREIGN KEY(p_id) REFERENCES product(p_id),
     FOREIGN KEY(s_id) REFERENCES supplier(s_id)
 );
@@ -65,8 +66,8 @@ CREATE TABLE supplies(
 CREATE TABLE distributes(
     consign_id INT,
     p_id INT NOT NULL,
-    r_id INT NOT NULL,
     d_id INT NOT NULL,
+    r_id INT NOT NULL,
     pending_or_done BOOLEAN,
     date DATE,
     d_qty INT CHECK(d_qty>0),
@@ -97,7 +98,7 @@ CREATE TABLE inv_has(
 CREATE TABLE invoice(
     inv_id INT,
     c_id INT NOT NULL,
-    PRIMARY KEY(inv_id),
     inv_date DATE,
+    PRIMARY KEY(inv_id),
     FOREIGN KEY(c_id) REFERENCES customer(c_id)
 );

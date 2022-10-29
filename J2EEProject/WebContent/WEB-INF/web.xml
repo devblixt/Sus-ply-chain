@@ -27,7 +27,6 @@
     <servlet-name>IssueServlet</servlet-name>
     <servlet-class>IssueServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>StudentServlet</servlet-name>
     <url-pattern>/StudentServlet</url-pattern>
