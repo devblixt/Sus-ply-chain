@@ -20,9 +20,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Primary Meta Tags -->
-<title>Pixel Bootstrap 5 - Sign up</title>
+<title>Add Stock</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="title" content="Pixel Bootstrap 5 - Sign up">
+<meta name="title" content="Pixel Bootstrap 5 - Sign in">
 <meta name="author" content="Themesberg">
 <meta name="description" content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow.">
 <link rel="canonical" href="https://themesberg.com/product/ui-kit/pixel-free-bootstrap-5-ui-kit">
@@ -30,14 +30,14 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://demo.themesberg.com/pixel-bootstrap-5-ui-kit">
-<meta property="og:title" content="Pixel Bootstrap 5 - Sign up">
+<meta property="og:title" content="Pixel Bootstrap 5 - Sign in">
 <meta property="og:description" content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow.">
 <meta property="og:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/pixel-lite/pixel-lite-preview.jpg">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://demo.themesberg.com/pixel-bootstrap-5-ui-kit">
-<meta property="twitter:title" content="Pixel Bootstrap 5 - Sign up">
+<meta property="twitter:title" content="Pixel Bootstrap 5 - Sign in">
 <meta property="twitter:description" content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow.">
 <meta property="twitter:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/pixel-lite/pixel-lite-preview.jpg">
 
@@ -86,90 +86,48 @@
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">Create an account</h1>
+                                <h1 class="mb-0 h3">Add Stock!</h1>
                             </div>
-                            <form action="#">
+                            <form action="#" class="mt-4">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="email">Your User ID</label>
+                                    <label for="text">Product ID</label>
                                     <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
-                                        <input type="text" class="form-control" placeholder="ID" id="email" required>
+                                        <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
+                                        <input type="text" class="form-control" placeholder="ID" id="p_id" required>
                                     </div>  
                                 </div>
-                                <div class="form-group mb-4">
-                                    <label for="email">Your name</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon3"><span class="fas fa-address-card"></span></span>
-                                        <input type="text" class="form-control" placeholder="John Green" id="name" required>
-                                    </div>  
-                                </div>
-                                <div class="form-group mb-4">
-                                    <label for="email">Your City</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon3"><span class="fas fa-building"></span></span>
-                                        <input type="text" class="form-control" placeholder="Mumbai" id="city" required>
-                                    </div>  
-                                </div>
-                                <div class="form-group mb-4">
-                                    <label for="password_confirm">Phone Number</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon5"><span class="fas fa-address-book"></span></span>
-                                        <input type="tel" placeholder="987654321" class="form-control" id="phone" required>
-                                    </div>  
-                                </div>
+
                                 <!-- End of Form -->
                                 <div class="form-group">
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Your Password</label>
+                                        <label for="text">Product Name</label>
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
-                                            <input type="password" placeholder="Password" class="form-control" id="password" required>
+                                            <span class="input-group-text" id="basic-addon2"><span class="fas fa-keyboard"></span></span>
+                                            <input type="text" placeholder="Vacuum Cleaner" class="form-control" id="p_name" required>
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
-                                    <!-- Form -->
-                                    <div class="form-group mb-4">
-                                        <label for="password_confirm">Confirm Password</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
-                                            <input type="password" placeholder="Confirm Password" class="form-control" id="password_confirm" required>
-                                        </div>  
-                                    </div>
-                                    
-                                    <div class="form-group mb-4">
-                                        <label for="text">Your User Type</label>
-                                        <div class="input-group">
-                                            <select name="usertype" id="usertype">
-                                                <option value="javascript">Supplier</option>
-                                                <option value="php">Distributor</option>
-                                                <option value="java">Retailer</option>
-                                                <option value="golang">Customer</option>
-                                              </select>
-                                        </div>  
-                                    </div>
-                                    <!-- End of Form -->
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="terms">
-                                        <label class="form-check-label" for="terms">
-                                            I agree to the <a href="#">terms and conditions</a>
-                                        </label>
-                                    </div>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="text">Rate</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1"><span class="fas fa-money-bill-alt"></span></span>
+                                        <input type="text" class="form-control" placeholder="123" id="p_rate" required>
+                                    </div>  
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="text">Feature</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
+                                        <input type="text" class="form-control" placeholder="High suction" id="p_feature" required>
+                                    </div>  
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                            <div class="mt-3 mb-4 text-center">
-                                <span class="fw-normal">or</span>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="fw-normal">
-                                    Already have an account?
-                                    <a href="./sign-in.html" class="fw-bold text-underline">Login here</a>
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
