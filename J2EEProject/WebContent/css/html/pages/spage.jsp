@@ -54,7 +54,9 @@
             /* border: 1px solid black;  */
             /* width: 50%;  */
         }
-
+        .grid-child-element { 
+    margin: 10px; 
+}
 
 
     </style>
