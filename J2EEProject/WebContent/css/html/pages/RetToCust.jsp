@@ -81,9 +81,9 @@
                         <div
                             class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">Supply to Retailer!</h1>
+                                <h1 class="mb-0 h3">Deliver to Customer!</h1>
                             </div>
-                            <form action="${pageContext.request.contextPath}/SendToRet" class="mt-4" method="post">
+                            <form action="${pageContext.request.contextPath}/SendToCust" class="mt-4" method="post">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
                                     <label for="text">Product ID</label>
@@ -95,11 +95,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <label for="text">Retailer ID</label>
+                                    <label for="text">Customer ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span
                                                 class="fas fa-user-circle"></span></span>
-                                        <input type="text" class="form-control" placeholder="12345" name="r_id"
+                                        <input type="text" class="form-control" placeholder="12345" name="c_id"
                                             required>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                 </div>
                             </form>
                             <div class="text-center" style="margin:5px; padding: top 5px;">
-                                <a href="dpage.jsp" class="text-default me-3">
+                                <a href="rpage.jsp" class="text-default me-3">
                                     <button class="btn btn-primary" type="button">
                                         Go to Dashboard
                                     </button>

@@ -96,14 +96,14 @@ public class LoginServlet extends HttpServlet {
 //                rd.include(request, response); 
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('User not present!');");
-                out.println("location='sign-in.jsp';");
+                out.println("location='css/html/pages/sign-in.jsp';");
                 out.println("</script>");
             }
     		
  		} else {
  		   out.println("<script type=\"text/javascript\">");
  		    out.println("alert('Invalid user type!');");
- 		    out.println("location='sign-in.jsp';");
+ 		    out.println("location='css/html/pages/sign-in.jsp';");
  		    out.println("</script>");
  		}
 // 		out.close();

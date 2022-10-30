@@ -167,7 +167,7 @@ padding:20px;
                              		} else{
                              			out.println("<script type=\"text/javascript\">");
                              		    out.println("alert('Invalid login');");
-                             		    out.println("location='css/html/pages/sign-in.jsp';");
+                             		    out.println("location='sign-in.jsp';");
                              		    out.println("</script>");
                              		}
                                     %>
@@ -193,21 +193,13 @@ padding:20px;
                                     <h1 class="mb-0 h3">Retailer Options</h1>
                                 </div>
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="addStock.jsp" class="text-default me-3">
+                                    <a href="RetToCust.jsp" class="text-default me-3">
                                         <button class="btn btn-outline-primary" type="button">
                                             Deliver to Customer
                                         </button>
                                     </a>
                                     <!-- </button> -->
                                 </div>
-                                <!-- <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="suptodist.jsp" class="text-default me-3">
-                                        <button class="btn btn-outline-primary" type="button">
-                                            Ship to Distributor
-                                        </button>
-                                    </a>
-                                    <!-- </button> -->
-                                </div> -->
                                 <form action="${pageContext.request.contextPath}/LogoutServlet" method="post">
                                 <div class="text-center text-md-center mb-4 mt-md-0">
                                     	<button class="btn btn-outline-primary" type="submit">
@@ -216,6 +208,15 @@ padding:20px;
                                     <!-- </button> -->
                                 </div>
                                 </form>
+                                <!-- <div class="text-center text-md-center mb-4 mt-md-0">
+                                    <a href="suptodist.jsp" class="text-default me-3">
+                                        <button class="btn btn-outline-primary" type="button">
+                                            Ship to Distributor
+                                        </button>
+                                    </a>
+                                    <!-- </button> -->
+                                </div> -->
+                                
                             </div>
                         </div>
                     </div>

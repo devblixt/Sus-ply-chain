@@ -77,6 +77,20 @@ CREATE TABLE distributes(
     FOREIGN KEY(r_id) REFERENCES retailer(r_id),
     FOREIGN KEY(d_id) REFERENCES distributor(d_id)
 );
+CREATE TABLE invoices(
+    invoice_id VARCHAR(7),
+    p_id VARCHAR(7) NOT NULL,
+    r_id VARCHAR(7) NOT NULL,
+    c_id VARCHAR(7) NOT NULL,
+    date DATE,
+    qty INT CHECK(qty>0),
+    PRIMARY KEY(invoice_id),
+    FOREIGN KEY(p_id) REFERENCES product(p_id),
+    FOREIGN KEY(r_id) REFERENCES retailer(r_id),
+    FOREIGN KEY(c_id) REFERENCES customer(c_id)
+);
+
+
 CREATE TABLE invoice_line(
     inv_line_id VARCHAR(7),
     p_id VARCHAR(7) NOT NULL,

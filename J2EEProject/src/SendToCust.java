@@ -66,6 +66,7 @@ public class SendToCust extends HttpServlet {
             checker2.setString(1, c_id); 
             ResultSet rset2 = checker2.executeQuery();
             rset2.next();
+            int result2=0;
  
     		if (rset.getInt("C") == 1 && rset2.getInt("C2") == 1) { // then p_id, d_id exists
     		    
@@ -78,44 +79,28 @@ public class SendToCust extends HttpServlet {
                 int has_qty = hist2.getInt("has_qty");
                 System.out.println("ret has "+ has_qty+ " and wants to give "+qty);
                 if(has_qty > qty) {
-
-    		    PreparedStatement glance = con.prepareStatement("SELECT COUNT(*) as C3 FROM retail_inv WHERE p_id = ? AND r_id = ? ;");
-    			glance.setString(1, p_id);
-    			glance.setString(2, r_id);
-    			ResultSet hist = glance.executeQuery();
-                hist.next();
-                int result = 0;
-                int result2 = 0;
-                
+    
                 PreparedStatement st4 = con.prepareStatement(
-                        "INSERT INTO supplies(transac_id, p_id, s_id, d_id, date, qty) "
-                        + "SELECT MAX(transac_id) + 1 , ?, ?, ?, MAX(CURDATE()), ? FROM supplies;");
+                        "INSERT INTO invoices(invoice_id, p_id, r_id, c_id, date, qty) "
+                        + "SELECT MAX(invoice_id) + 1 , ?, ?, ?, MAX(CURDATE()), ? FROM invoices;");
                 // allow multiple such supplies in same day. possible IRL!!!!!!!!!!!!!
                 st4.setString(1, p_id);
-                st4.setString(2, s_id);
-                st4.setString(3, d_id);
+                st4.setString(2, r_id);
+                st4.setString(3, c_id);
                 st4.setInt(4, qty);
                 result2=st4.executeUpdate();
                 st4.close();
                 
-                if(hist.getInt("C3") == 1) { // dist already has the product
-                    PreparedStatement st = con.prepareStatement("UPDATE TABLE dist_inv SET has_qty = has_qty + ? WHERE p_id = ? AND d_id = ? ;");
-                    st.setInt(1, qty);
-                    st.setString(2, p_id);
-                    st.setString(3, d_id);
-                    result=st.executeUpdate();
-                    st.close();
-                } else { // dist doesn't already have the product
-                    PreparedStatement st = con.prepareStatement("INSERT INTO dist_inv VALUES (?, ?, ?);");
-                    st.setString(1, d_id);
-                    st.setString(2, p_id);
-                    st.setInt(3, qty);
-                    result=st.executeUpdate();
-                    st.close();
-                }
-                hist.close();
-                if(result>0) {
-                    System.out.println("Successfully sent supplies to distributor!!! ");
+                PreparedStatement st7 = con.prepareStatement(
+                        "UPDATE retail_inv SET has_qty = has_qty - ? WHERE p_id = ? AND r_id = ? ;");
+                st7.setInt(1, qty);
+                st7.setString(2, p_id);
+                st7.setString(3, r_id);
+                int result7=st7.executeUpdate();
+                st7.close();
+                
+                if(result2*result7>0) {
+                    System.out.println("Successfully delivered goods to customer!!! ");
                     
 //                  out.println("<script type=\"text/javascript\">");
 //                  out.println("alert('Successfully Sent to Distributor!!!');");
@@ -124,7 +109,7 @@ public class SendToCust extends HttpServlet {
                     
                     //RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToDist.jsp");
                     session.setAttribute("errorType", 0);
-                    response.sendRedirect("css/html/pages/sentToDist.jsp");
+                    response.sendRedirect("css/html/pages/sentToCust.jsp");
                     //rd.forward(request, response);
                 
                 }
@@ -137,7 +122,7 @@ public class SendToCust extends HttpServlet {
                    // RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToDist.jsp");
                     session.setAttribute("errorType", 1);
                    // rd.forward(request, response);
-                    response.sendRedirect("css/html/pages/sentToDist.jsp");
+                    response.sendRedirect("css/html/pages/sentToCust.jsp");
                 }
     		}
     		else {
@@ -148,17 +133,17 @@ public class SendToCust extends HttpServlet {
 //    		       out.print("alert('Product with ID "+p_id+" does not exist!! ');");
 //    		       out.print("location='css/html/pages/suptodist.jsp';");
 //    		       out.print("</script>");
-    		       RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToDist.jsp");
+    		       RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToCust.jsp");
                    session.setAttribute("errorType", 2);
                    rd.forward(request, response);
     		   } else {
-    		       System.out.println("Distributor with given ID does not exist");
-    		       session.setAttribute("d_id", d_id);
+    		       System.out.println("Customer with given ID does not exist");
+    		       session.setAttribute("c_id", c_id);
 //    		       out.print("<script type=\"text/javascript\">");
 //                   out.print("alert('Distributor with ID "+d_id+" does not exist!! ');");
 //                   out.print("location='css/html/pages/suptodist.jsp';");
 //                   out.print("</script>");
-    		       RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToDist.jsp");
+    		       RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToCust.jsp");
                    session.setAttribute("errorType", 3);
                    rd.forward(request, response);
     		   }

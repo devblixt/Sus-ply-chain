@@ -71,6 +71,19 @@ INSERT INTO retail_inv VALUES('20002', '50002', 1000);
 INSERT INTO retail_inv VALUES('20002', '50004', 700);
 INSERT INTO retail_inv VALUES('20002', '50005', 2000);
 
+-- invoices               (inv_id,     p_id,   r_id,   c_id,   date,       qty)
+INSERT INTO invoices VALUES('80001', '50001', '20001', '30001', "2022-12-09",10);
+INSERT INTO invoices VALUES('80002', '50006', '20001', '30002', "2022-12-09",4);
+INSERT INTO invoices VALUES('80003', '50007', '20001', '30003', "2022-12-09",1);
+INSERT INTO invoices VALUES('80004', '50002', '20001', '30004', "2022-12-09",5);
+INSERT INTO invoices VALUES('80005', '50003', '20001', '30001', "2022-12-09",2);
+INSERT INTO invoices VALUES('80006', '50010', '20001', '30002', "2022-12-09",1);
+INSERT INTO invoices VALUES('80007', '50001', '20002', '30003', "2022-12-09",4);
+INSERT INTO invoices VALUES('80008', '50008', '20002', '30004', "2022-12-09",7);
+INSERT INTO invoices VALUES('80009', '50002', '20002', '30001', "2022-12-09",8);
+INSERT INTO invoices VALUES('80010', '50004', '20002', '30002', "2022-12-09",9);
+INSERT INTO invoices VALUES('80011', '50005', '20002', '30005', "2022-11-11",2);
+INSERT INTO invoices VALUES('80012', '50005', '20002', '30005', "2022-11-11",2);
 
 -- invoice_line               (inv_line_id, p_id,   r_id,   c_id,  qty)
 INSERT INTO invoice_line VALUES('80001', '50001', '20001', '30001', 10);
@@ -108,6 +121,5 @@ INSERT INTO inv_has VALUES('80009', '90006');
 INSERT INTO inv_has VALUES('80010', '90007');
 INSERT INTO inv_has VALUES('80011', '90005');
 INSERT INTO inv_has VALUES('80012', '90005');
-
 
 
