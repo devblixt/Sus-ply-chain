@@ -58,6 +58,21 @@
     margin: 10px; 
 }
 
+.flex-parent-element {
+  display: flex;
+  width: 50%;
+}
+
+.flex-child-element {
+  flex: 1;
+  border: 2px solid blueviolet;
+  margin: 10px;
+}
+
+.flex-child-element:first-child {
+  margin-right: 20px;
+}
+
 
     </style>
 </head>
@@ -87,8 +102,8 @@
         <!-- Section -->
         <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark"
             data-background="../../assets/img/pages/form-image.jpg">
-            <div class="container-xl grid-container-element">
-                <div class="container grid-child-element">
+            <div class="container-xl flex-parent-element">
+                <div class="container flex-child-element">
                     <div class="row justify-content-center">
                         <div class="col-12 d-flex align-items-center justify-content-center">
                             <div
@@ -144,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container grid-child-element">
+                <div class="container flex-child-element">
                     <div class="row justify-content-center">
                         <div class="col-12 d-flex align-items-center justify-content-center">
                             <div
