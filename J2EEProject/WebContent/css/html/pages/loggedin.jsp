@@ -11,7 +11,7 @@
 response.setContentType("text/html");
 if(session!=null){
 	String name = (String)session.getAttribute("userid");
-	out.print("Hello, "+name+" ! You Are Logged In. Redirecting you shortly.");
+	out.print("Hello, user with ID: "+name+" ! You Are Logged In. Redirecting you shortly.");
 	int utype = (Integer)session.getAttribute("usertype");
 	switch(utype){
 		case 0:

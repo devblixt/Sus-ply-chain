@@ -44,6 +44,9 @@
 function setTwoNumberDecimal(event) {
     this.value = parseFloat(this.value).toFixed(2);
 }
+function setToInt(event) {
+    this.value = parseInt(this.value);
+}
 </script>
 <style>
 input::-webkit-outer-spin-button,
@@ -84,13 +87,13 @@ input::-webkit-inner-spin-button {
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">Add Stock!</h1>
                             </div>
-                            <form action="#" class="mt-4">
+                            <form action="${pageContext.request.contextPath}/AddServlet" class="mt-4">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
                                     <label for="text">Product ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                        <input type="text" class="form-control" placeholder="ID" id="p_id" required>
+                                        <input type="text" class="form-control" placeholder="ID" id="p_id" name="p_id" required>
                                     </div>  
                                 </div>
 
@@ -101,7 +104,7 @@ input::-webkit-inner-spin-button {
                                         <label for="text">Product Name</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2"><span class="fas fa-keyboard"></span></span>
-                                            <input type="text" placeholder="Vacuum Cleaner" class="form-control" id="p_name" required>
+                                            <input type="text" placeholder="Vacuum Cleaner" class="form-control" id="p_name" name="p_name" required>
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
@@ -110,14 +113,21 @@ input::-webkit-inner-spin-button {
                                     <label for="text">Rate</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-money-bill-alt"></span></span>
-                                        <input type="number" onchange="setTwoNumberDecimal" min="0.01" max="9999999" step="0.01" value="123" class="form-control" placeholder="123" id="p_rate" required>
+                                        <input type="number" onchange="setTwoNumberDecimal" min="0.01" max="9999999" step="0.01" value="123.00" class="form-control" placeholder="123.00" id="p_rate" name="p_rate" required>
+                                    </div>  
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="text">Quantity</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1"><span class="fas fa-money-bill-alt"></span></span>
+                                        <input type="number" onchange="setToInt" min="1" max="99999" step="1" value="250" class="form-control" placeholder="250" id="p_qty" name="p_qty" required>
                                     </div>  
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="text">Feature</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                        <input type="text" class="form-control" placeholder="High suction" id="p_feature" required>
+                                        <input type="text" class="form-control" placeholder="High suction" id="p_feature" name="p_feature" required>
                                     </div>  
                                 </div>
                                 <div class="d-grid">
