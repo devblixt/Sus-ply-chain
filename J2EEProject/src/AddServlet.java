@@ -65,12 +65,11 @@ public class AddServlet extends HttpServlet {
     //		System.out.println(student_id);
     //		System.out.println(rset.getInt("C"));
     		if (rset.getInt("C") == 0) {
-    			PreparedStatement st = con.prepareStatement("INSERT INTO product VALUES (?, ?, ?, ?, ?);");
+    			PreparedStatement st = con.prepareStatement("INSERT INTO product VALUES (?, ?, ?, ?);");
     	 		st.setString(1, p_id);
     			st.setString(2, p_name);
     			st.setFloat(3, p_rate);
-    			st.setInt(4, p_qty);
-    			st.setString(5, p_feature);
+    			st.setString(4, p_feature);
     			int result=st.executeUpdate();
     			st.close();
     			System.out.println(result+ " record added! new product ...");
@@ -91,7 +90,7 @@ public class AddServlet extends HttpServlet {
             checker2.setString(1, p_id);
             checker2.setString(2, s_id);
             ResultSet rset2 = checker2.executeQuery();
-            rset.next();
+            rset2.next();
             int result = 0;
             if (rset2.getInt("C") == 0) {
                 PreparedStatement st = con.prepareStatement("INSERT INTO has VALUES (?, ?, ?);");
@@ -113,13 +112,16 @@ public class AddServlet extends HttpServlet {
             }
             checker2.close();
             if(result>0) {
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Successfully Added Product!');");
-                out.println("location='css/html/pages/addStock.jsp';");
-                out.println("</script>");
+                System.out.println("successfully added!");
+                RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/addedYes.jsp");
+                rd.forward(request, response);
+            
+//                out.println("<script type=\"text/javascript\">");
+//                out.println("alert('Successfully Added Stock for Product with ID = "+p_id+" !");
+//                out.println("location='css/html/pages/addStock.jsp';");
+//                out.println("</script>");
             }
-    		
-    		
+            
         } else {
             System.out.println("Not a supplier !!! Illegal Access");
             RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sign-in.jsp");
@@ -132,9 +134,7 @@ public class AddServlet extends HttpServlet {
  			e.printStackTrace();
  		}
 
-	
 	}
-
 
 }
 

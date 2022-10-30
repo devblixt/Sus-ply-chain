@@ -106,7 +106,7 @@ public class LoginServlet extends HttpServlet {
  		    out.println("location='css/html/pages/sign-in.jsp';");
  		    out.println("</script>");
  		}
- 		out.close();
+// 		out.close();
 		}
 		 catch (Exception e) 
  		{
