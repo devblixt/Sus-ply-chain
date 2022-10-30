@@ -73,6 +73,20 @@
   margin-right: 20px;
 }
 
+.float-container{
+padding:20px;
+}
+.float-child1{
+width:70%;
+float:left;
+padding:20px;
+}
+.float-child2{
+width:30%;
+float:right;
+padding:20px;
+}
+
 
     </style>
 </head>
@@ -102,16 +116,21 @@
         <!-- Section -->
         <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark"
             data-background="../../assets/img/pages/form-image.jpg">
-            <div class="container-xl flex-parent-element">
-                <div class="container flex-child-element">
+            <div class="container-xl grid-container-element">
+            
+                <div class="container grid-child-element">
                     <div class="row justify-content-center">
                         <div class="col-12 d-flex align-items-center justify-content-center">
                             <div
                                 class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <h1 class="mb-0 h3">Inventory</h1>
-                                </div>
-                                <div>
+                                    <h1 class="mb-0 h3">Inventory of Supplier 
+                                    <% 
+                                    String s_id = (String)session.getAttribute("userid");
+                                    out.println(s_id);
+                                    %>
+                                    </h1>
+                                    
                                     <%
                                     // Printwriter out = response.getWriter();
                                     Connection con = null;
@@ -122,7 +141,7 @@
                             		Class.forName("com.mysql.jdbc.Driver");
                             		con = DriverManager.getConnection(url, username, password); //attempting to connect to MySQL database
                              		System.out.println("Printing connection object "+con);
-                            		String s_id = (String)session.getAttribute("userid");
+                            		// s_id = (String)session.getAttribute("userid");
                             		int u_type = (Integer)session.getAttribute("usertype");
                             		
                              		if(u_type == 0){
@@ -132,20 +151,19 @@
 	                             		ResultSet rs = checker.executeQuery();
 	                            		rs.next();
 	                            		
-	                                    out.println("<table class='table table-dark'>");
+	                            		out.println("<table class='table table-dark' style='margin:10px'>");
 	                                    out.println("<tr><th scope='col'>Product ID</th> <th scope='col'>Name</th> <th scope='col'>Quantity</th></tr>");
 	                                    while(rs.next()){
 	    
 	                                    out.println("<tr>");
-	                                    out.println("<th scope='row'>"+rs.getString("p_id")+"</th>");
-	                                    out.println("<th scope='row'>"+rs.getString("p_name")+"</th>");
-	                                    out.println("<th scope='row'>"+rs.getString("has_qty")+"</th>");
-	                                    // Get the data from rows, put within td 
-	    
-	    
+	                                    out.println("<td scope='row'>"+rs.getString("p_id")+"</td>");
+	                                    out.println("<td scope='row'>"+rs.getString("p_name")+"</td>");
+	                                    out.println("<td scope='row'>"+rs.getString("has_qty")+"</td>");
+	                                    // Get the data from rows, put within td
 	                                    out.println("</tr>");
-	    
 	                                    }
+	                                    out.println("</table>");
+	                                    
                              		} else{
                              			out.println("<script type=\"text/javascript\">");
                              		    out.println("alert('Invalid login');");
@@ -153,13 +171,20 @@
                              		    out.println("</script>");
                              		}
                                     %>
+                                
+                                
                                 </div>
+                                
                             </div>
                             
                         </div>
                     </div>
+                    
                 </div>
-                <div class="container flex-child-element">
+                
+                
+                
+                <div class="container grid-child-element">
                     <div class="row justify-content-center">
                         <div class="col-12 d-flex align-items-center justify-content-center">
                             <div
@@ -183,6 +208,14 @@
                                     </a>
                                     <!-- </button> -->
                                 </div>
+                                <form action="${pageContext.request.contextPath}/LogoutServlet" method="post">
+                                <div class="text-center text-md-center mb-4 mt-md-0">
+                                    	<button class="btn btn-outline-primary" type="submit">
+                                            Log Out
+                                        </button>
+                                    <!-- </button> -->
+                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
