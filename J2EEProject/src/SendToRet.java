@@ -88,7 +88,7 @@ public class SendToRet extends HttpServlet {
                 int result2 = 0;
                 
                 PreparedStatement st4 = con.prepareStatement(
-                        "INSERT INTO distributes(consign_id, p_id, d_id, r_id, date, qty) "
+                        "INSERT INTO distributes(consign_id, p_id, d_id, r_id, date, d_qty) "
                         + "SELECT MAX(consign_id) + 1 , ?, ?, ?, MAX(CURDATE()), ? FROM distributes;");
                 // allow multiple such supplies in same day. possible IRL!!!!!!!!!!!!!
                 st4.setString(1, p_id);
@@ -97,9 +97,16 @@ public class SendToRet extends HttpServlet {
                 st4.setInt(4, qty);
                 result2=st4.executeUpdate();
                 st4.close();
+                PreparedStatement st7 = con.prepareStatement(
+                        "UPDATE dist_inv SET has_qty = has_qty - ? WHERE p_id = ? AND d_id = ? ;");
+                st7.setInt(1, qty);
+                st7.setString(2, p_id);
+                st7.setString(3, d_id);
+                int result7=st7.executeUpdate();
+                st7.close();
                 
                 if(hist.getInt("C3") == 1) { // dist already has the product
-                    PreparedStatement st = con.prepareStatement("UPDATE TABLE retail_inv SET has_qty = has_qty + ? WHERE p_id = ? AND r_id = ? ;");
+                    PreparedStatement st = con.prepareStatement("UPDATE retail_inv SET has_qty = has_qty + ? WHERE p_id = ? AND r_id = ? ;");
                     st.setInt(1, qty);
                     st.setString(2, p_id);
                     st.setString(3, r_id);
@@ -124,7 +131,7 @@ public class SendToRet extends HttpServlet {
                     
                     //RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sentToDist.jsp");
                     session.setAttribute("errorType", 0);
-                    response.sendRedirect("css/html/pages/sentToDist.jsp");
+                    response.sendRedirect("css/html/pages/sentToRet.jsp");
                     //rd.forward(request, response);
                 
                 }
@@ -167,7 +174,7 @@ public class SendToRet extends HttpServlet {
     		checker2.close();
             
         } else {
-            System.out.println("Not a supplier !!! Illegal Access");
+            System.out.println("Not a distributor !!! Illegal Access");
             RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/sign-in.jsp");
             session.invalidate();
             rd.forward(request, response);

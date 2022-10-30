@@ -1,3 +1,5 @@
 /SignupServlet.class
 /LogoutServlet.class
 /SendToDist.class
+/SendToRet.class
+/SendToCust.class

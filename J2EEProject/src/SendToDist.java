@@ -85,21 +85,27 @@ public class SendToDist extends HttpServlet {
     			ResultSet hist = glance.executeQuery();
                 hist.next();
                 int result = 0;
-                int result2 = 0;
                 
                 PreparedStatement st4 = con.prepareStatement(
-                        "INSERT INTO supplies(transac_id, p_id, s_id, d_id, date, qty) "
+                        "INSERT INTO supplies(transac_id, p_id, s_id, d_id, date, s_qty) "
                         + "SELECT MAX(transac_id) + 1 , ?, ?, ?, MAX(CURDATE()), ? FROM supplies;");
                 // allow multiple such supplies in same day. possible IRL!!!!!!!!!!!!!
                 st4.setString(1, p_id);
                 st4.setString(2, s_id);
                 st4.setString(3, d_id);
                 st4.setInt(4, qty);
-                result2=st4.executeUpdate();
+                int result2=st4.executeUpdate();
                 st4.close();
+                PreparedStatement st7 = con.prepareStatement(
+                        "UPDATE has SET has_qty = has_qty - ? WHERE p_id = ? AND s_id = ? ;");
+                st7.setInt(1, qty);
+                st7.setString(2, p_id);
+                st7.setString(3, s_id);
+                int result7=st7.executeUpdate();
+                st7.close();
                 
                 if(hist.getInt("C3") == 1) { // dist already has the product
-                    PreparedStatement st = con.prepareStatement("UPDATE TABLE dist_inv SET has_qty = has_qty + ? WHERE p_id = ? AND d_id = ? ;");
+                    PreparedStatement st = con.prepareStatement("UPDATE dist_inv SET has_qty = has_qty + ? WHERE p_id = ? AND d_id = ? ;");
                     st.setInt(1, qty);
                     st.setString(2, p_id);
                     st.setString(3, d_id);

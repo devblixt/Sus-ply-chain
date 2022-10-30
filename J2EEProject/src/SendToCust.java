@@ -81,7 +81,7 @@ public class SendToCust extends HttpServlet {
 
     		    PreparedStatement glance = con.prepareStatement("SELECT COUNT(*) as C3 FROM retail_inv WHERE p_id = ? AND r_id = ? ;");
     			glance.setString(1, p_id);
-    			glance.setString(2, d_id);
+    			glance.setString(2, r_id);
     			ResultSet hist = glance.executeQuery();
                 hist.next();
                 int result = 0;
