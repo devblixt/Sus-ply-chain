@@ -15,7 +15,7 @@ if(session!=null){
 	int utype = (Integer)session.getAttribute("usertype");
 	switch(utype){
 		case 0:
-			response.sendRedirect("css/html/pages/addStock.jsp");
+			response.sendRedirect("css/html/pages/spage.jsp");
 			break;
 		case 1:
 			response.sendRedirect("css/html/pages/dpage.jsp");
