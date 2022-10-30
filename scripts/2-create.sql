@@ -58,7 +58,6 @@ CREATE TABLE supplies(
     p_id VARCHAR(7) NOT NULL,
     s_id VARCHAR(7) NOT NULL,
     d_id VARCHAR(7) NOT NULL,
-    pending_or_done BOOLEAN,
     date DATE,
     s_qty INT CHECK(s_qty>0),
     PRIMARY KEY(transac_id),
@@ -71,7 +70,6 @@ CREATE TABLE distributes(
     p_id VARCHAR(7) NOT NULL,
     d_id VARCHAR(7) NOT NULL,
     r_id VARCHAR(7) NOT NULL,
-    pending_or_done BOOLEAN,
     date DATE,
     d_qty INT CHECK(d_qty>0),
     PRIMARY KEY(consign_id),
@@ -104,4 +102,22 @@ CREATE TABLE inv_has(
     PRIMARY KEY(inv_id, inv_line_id),
     FOREIGN KEY(inv_id) REFERENCES invoice(inv_id),
     FOREIGN KEY(inv_line_id) REFERENCES invoice_line(inv_line_id)
+);
+
+-- inventories
+CREATE TABLE dist_inv(
+    d_id VARCHAR(7),
+    p_id VARCHAR(7),
+    has_qty INT CHECK(has_qty>0),
+    PRIMARY KEY(d_id, p_id),
+    FOREIGN KEY(p_id) REFERENCES product(p_id),
+    FOREIGN KEY(d_id) REFERENCES distributor(d_id)
+);
+CREATE TABLE retail_inv(
+    r_id VARCHAR(7),
+    p_id VARCHAR(7),
+    has_qty INT CHECK(has_qty>0),
+    PRIMARY KEY(r_id, p_id),
+    FOREIGN KEY(p_id) REFERENCES product(p_id),
+    FOREIGN KEY(r_id) REFERENCES retailer(r_id)
 );

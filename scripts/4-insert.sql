@@ -14,34 +14,62 @@ INSERT INTO has VALUES('00003', '50003', 2900);
 INSERT INTO has VALUES('00004', '50004', 10000);
 INSERT INTO has VALUES('00004', '50005', 10000);
 
--- supplies               (transac_id, p_id,   s_id,    d_id, pending_or_done, date, qty)
-INSERT INTO supplies VALUES('60000', '50001', '00001', '10001', 0, "2022-10-01", 1000);
-INSERT INTO supplies VALUES('60001', '50006', '00001', '10001', 0, "2022-09-30", 500);
-INSERT INTO supplies VALUES('60002', '50007', '00001', '10001', 0, "2022-08-11", 200);
-INSERT INTO supplies VALUES('60003', '50002', '00002', '10001', 0, "2022-10-01", 400);
-INSERT INTO supplies VALUES('60004', '50003', '00002', '10001', 0, "2022-10-11", 1000);
-INSERT INTO supplies VALUES('60005', '50010', '00002', '10002', 0, "2022-10-31", 100);
-INSERT INTO supplies VALUES('60006', '50001', '00003', '10002', 0, "2022-09-01", 1000);
-INSERT INTO supplies VALUES('60007', '50008', '00003', '10002', 0, "2022-09-21", 2500);
-INSERT INTO supplies VALUES('60008', '50002', '00003', '10002', 0, "2022-09-11", 3500);
-INSERT INTO supplies VALUES('60009', '50004', '00004', '10002', 0, "2022-09-21", 1000);
-INSERT INTO supplies VALUES('60010', '50005', '00004', '10002', 0, "2022-08-31", 2500);
-INSERT INTO supplies VALUES('60011', '50005', '00004', '10002', 0, "2022-09-21", 2500);
+-- supplies               (transac_id, p_id,   s_id,    d_id,         date, qty)
+INSERT INTO supplies VALUES('60000', '50001', '00001', '10001', "2022-10-01", 1000);
+INSERT INTO supplies VALUES('60001', '50006', '00001', '10001', "2022-09-30", 500);
+INSERT INTO supplies VALUES('60002', '50007', '00001', '10001', "2022-08-11", 200);
+INSERT INTO supplies VALUES('60003', '50002', '00002', '10001', "2022-10-01", 400);
+INSERT INTO supplies VALUES('60004', '50003', '00002', '10001', "2022-10-11", 1000);
+INSERT INTO supplies VALUES('60005', '50010', '00002', '10002', "2022-10-31", 100);
+INSERT INTO supplies VALUES('60006', '50001', '00003', '10002', "2022-09-01", 1000);
+INSERT INTO supplies VALUES('60007', '50008', '00003', '10002', "2022-09-21", 2500);
+INSERT INTO supplies VALUES('60008', '50002', '00003', '10002', "2022-09-11", 3500);
+INSERT INTO supplies VALUES('60009', '50004', '00004', '10002', "2022-09-21", 1000);
+INSERT INTO supplies VALUES('60010', '50005', '00004', '10002', "2022-08-31", 2500);
+INSERT INTO supplies VALUES('60011', '50005', '00004', '10002', "2022-09-21", 2500);
+
+-- dist_inv (d_id, p_id, has_qty)
+INSERT INTO dist_inv VALUES('10001', '50001', 1000);
+INSERT INTO dist_inv VALUES('10001', '50006', 500);
+INSERT INTO dist_inv VALUES('10001', '50007', 200);
+INSERT INTO dist_inv VALUES('10001', '50002', 400);
+
+INSERT INTO dist_inv VALUES('10002', '50003', 1000);
+INSERT INTO dist_inv VALUES('10002', '50010', 100);
+INSERT INTO dist_inv VALUES('10002', '50001', 1000);
+INSERT INTO dist_inv VALUES('10002', '50008', 2500);
+INSERT INTO dist_inv VALUES('10002', '50002', 3500);
+INSERT INTO dist_inv VALUES('10002', '50004', 1000);
+INSERT INTO dist_inv VALUES('10002', '50005', 5000);
 
 
--- distributes               (consign_id, p_id,   d_id,   r_id, pending_or_done, date, qty)
-INSERT INTO distributes VALUES('70001', '50001', '10001', '20001', 0, "2022-11-21", 750);
-INSERT INTO distributes VALUES('70002', '50006', '10001', '20001', 0, "2022-11-21", 250);
-INSERT INTO distributes VALUES('70003', '50007', '10001', '20001', 0, "2022-11-21", 100);
-INSERT INTO distributes VALUES('70004', '50002', '10001', '20001', 0, "2022-11-21", 250);
-INSERT INTO distributes VALUES('70005', '50003', '10001', '20001', 0, "2022-11-21", 500);
-INSERT INTO distributes VALUES('70006', '50010', '10002', '20001', 0, "2022-11-21", 50);
-INSERT INTO distributes VALUES('70007', '50001', '10002', '20002', 0, "2022-11-21", 500);
-INSERT INTO distributes VALUES('70008', '50008', '10002', '20002', 0, "2022-11-21", 300);
-INSERT INTO distributes VALUES('70009', '50002', '10002', '20002', 0, "2022-11-21", 1000);
-INSERT INTO distributes VALUES('70010', '50004', '10002', '20002', 0, "2022-10-21", 700);
-INSERT INTO distributes VALUES('70011', '50005', '10002', '20002', 0, "2022-10-21", 1000);
-INSERT INTO distributes VALUES('70012', '50005', '10002', '20002', 0, "2022-10-21", 1000);
+-- distributes               (consign_id, p_id,   d_id,   r_id,          date, qty)
+INSERT INTO distributes VALUES('70001', '50001', '10001', '20001', "2022-11-21", 750);
+INSERT INTO distributes VALUES('70002', '50006', '10001', '20001', "2022-11-21", 250);
+INSERT INTO distributes VALUES('70003', '50007', '10001', '20001', "2022-11-21", 100);
+INSERT INTO distributes VALUES('70004', '50002', '10001', '20001', "2022-11-21", 250);
+INSERT INTO distributes VALUES('70005', '50003', '10001', '20001', "2022-11-21", 500);
+INSERT INTO distributes VALUES('70006', '50010', '10002', '20001', "2022-11-21", 50);
+INSERT INTO distributes VALUES('70007', '50001', '10002', '20002', "2022-11-21", 500);
+INSERT INTO distributes VALUES('70008', '50008', '10002', '20002', "2022-11-21", 300);
+INSERT INTO distributes VALUES('70009', '50002', '10002', '20002', "2022-11-21", 1000);
+INSERT INTO distributes VALUES('70010', '50004', '10002', '20002', "2022-10-21", 700);
+INSERT INTO distributes VALUES('70011', '50005', '10002', '20002', "2022-10-21", 1000);
+INSERT INTO distributes VALUES('70012', '50005', '10002', '20002', "2022-10-21", 1000);
+
+-- retail_inv (r_id, p_id, qty)
+INSERT INTO retail_inv VALUES('20001', '50001', 750);
+INSERT INTO retail_inv VALUES('20001', '50006', 250);
+INSERT INTO retail_inv VALUES('20001', '50007', 100);
+INSERT INTO retail_inv VALUES('20001', '50002', 250);
+INSERT INTO retail_inv VALUES('20001', '50003', 500);
+INSERT INTO retail_inv VALUES('20001', '50010', 50);
+
+INSERT INTO retail_inv VALUES('20002', '50001', 500);
+INSERT INTO retail_inv VALUES('20002', '50008', 300);
+INSERT INTO retail_inv VALUES('20002', '50002', 1000);
+INSERT INTO retail_inv VALUES('20002', '50004', 700);
+INSERT INTO retail_inv VALUES('20002', '50005', 2000);
 
 
 -- invoice_line               (inv_line_id, p_id,   r_id,   c_id,  qty)
@@ -80,3 +108,6 @@ INSERT INTO inv_has VALUES('80009', '90006');
 INSERT INTO inv_has VALUES('80010', '90007');
 INSERT INTO inv_has VALUES('80011', '90005');
 INSERT INTO inv_has VALUES('80012', '90005');
+
+
+

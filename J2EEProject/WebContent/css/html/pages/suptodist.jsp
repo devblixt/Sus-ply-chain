@@ -105,7 +105,7 @@ input::-webkit-inner-spin-button {
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">Supply to Distributor!</h1>
                             </div>
-                            <form action="#" class="mt-4" method="post">
+                            <form action="${pageContext.request.contextPath}/SendToDist" class="mt-4" method="post">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
                                     <label for="text">Product ID</label>
@@ -117,11 +117,11 @@ input::-webkit-inner-spin-button {
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <label for="text">Supplier ID</label>
+                                    <label for="text">Distributor ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span
                                                 class="fas fa-user-circle"></span></span>
-                                        <input type="text" class="form-control" placeholder="Supplier ID (e.g. 00001) " name="s_id"
+                                        <input type="text" class="form-control" placeholder="Distributor ID (e.g. 10001) " name="d_id"
                                             required>
                                     </div>
                                 </div>

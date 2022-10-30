@@ -131,7 +131,7 @@ input::-webkit-inner-spin-button {
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-money-bill-alt"></span></span>
                                         <input type="number" onchange="setToInt" min="1" max="99999" step="1" class="form-control" placeholder="250" id="p_qty" name="p_qty" required>
-                                    </div>  
+                                    </div>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="text">Feature</label>
