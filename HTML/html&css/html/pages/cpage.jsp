@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title>Distributor Dashboard</title>
+    <title>Customer Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="title" content="Pixel Bootstrap 5 - Sign in" />
     <meta name="author" content="Themesberg" />
@@ -124,7 +124,7 @@ padding:20px;
                             <div
                                 class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <h1 class="mb-0 h3">Inventory of Distributor  
+                                    <h1 class="mb-0 h3">Orders of Customer   
                                     <% 
                                     String s_id = (String)session.getAttribute("userid");
                                     out.println(s_id);
@@ -145,7 +145,7 @@ padding:20px;
                             		int u_type = (Integer)session.getAttribute("usertype");
                             		
                              		if(u_type == 0){
-	                             		PreparedStatement checker = con.prepareStatement("SELECT * FROM product NATURAL JOIN dist_inv WHERE d_id = ? ;");
+	                             		PreparedStatement checker = con.prepareStatement("SELECT * FROM product NATURAL JOIN dist_inventory WHERE d_id = ? ;");
 	                             		
 	                             		checker.setString(1, s_id); 
 	                             		ResultSet rs = checker.executeQuery();
@@ -174,7 +174,14 @@ padding:20px;
                                 
                                 
                                 </div>
-                                
+                                <form action="${pageContext.request.contextPath}/LogoutServlet" method="post">
+                                    <div class="text-center text-md-center mb-4 mt-md-0">
+                                            <button class="btn btn-outline-primary" type="submit">
+                                                Log Out
+                                            </button>
+                                        <!-- </button> -->
+                                    </div>
+                                    </form>
                             </div>
                             
                         </div>
@@ -184,42 +191,7 @@ padding:20px;
                 
                 
                 
-                <div class="container grid-child-element">
-                    <div class="row justify-content-center">
-                        <div class="col-12 d-flex align-items-center justify-content-center">
-                            <div
-                                class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
-                                <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <h1 class="mb-0 h3">Distributor Options</h1>
-                                </div>
-                                <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="addStock.jsp" class="text-default me-3">
-                                        <button class="btn btn-outline-primary" type="button">
-                                            Ship to Retailer
-                                        </button>
-                                    </a>
-                                    <!-- </button> -->
-                                </div>
-                                <!-- <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="suptodist.jsp" class="text-default me-3">
-                                        <button class="btn btn-outline-primary" type="button">
-                                            Ship to Distributor
-                                        </button>
-                                    </a>
-                                    <!-- </button> -->
-                                </div> -->
-                                <form action="${pageContext.request.contextPath}/LogoutServlet" method="post">
-                                <div class="text-center text-md-center mb-4 mt-md-0">
-                                    	<button class="btn btn-outline-primary" type="submit">
-                                            Log Out
-                                        </button>
-                                    <!-- </button> -->
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </section>
     </main>
