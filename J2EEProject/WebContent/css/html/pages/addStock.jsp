@@ -144,6 +144,14 @@ input::-webkit-inner-spin-button {
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
+                            <div class="text-center text-md-center mb-4 mt-md-0">
+                                    <a href="spage.jsp" class="text-default me-3">
+                                        <button class="btn btn-outline-primary" type="button">
+                                            Back to Dashboard
+                                        </button>
+                                    </a>
+                                    <!-- </button> -->
+                                </div>
                         </div>
                     </div>
                 </div>
