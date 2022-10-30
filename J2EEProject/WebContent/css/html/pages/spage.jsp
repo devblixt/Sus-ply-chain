@@ -168,7 +168,7 @@
                                     <h1 class="mb-0 h3">Supplier Options</h1>
                                 </div>
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="css/html/pages/addStock.jsp" class="text-default me-3">
+                                    <a href="addStock.jsp" class="text-default me-3">
                                         <button class="btn btn-outline-primary" type="button">
                                             Add Stock
                                         </button>
@@ -176,7 +176,7 @@
                                     <!-- </button> -->
                                 </div>
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="css/html/pages/" class="text-default me-3">
+                                    <a href="shipToDist.jsp" class="text-default me-3">
                                         <button class="btn btn-outline-primary" type="button">
                                             Ship to Distributor
                                         </button>
