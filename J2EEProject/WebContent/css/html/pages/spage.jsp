@@ -201,7 +201,7 @@ padding:20px;
                                     <!-- </button> -->
                                 </div>
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <a href="shipToDist.jsp" class="text-default me-3">
+                                    <a href="suptodist.jsp" class="text-default me-3">
                                         <button class="btn btn-outline-primary" type="button">
                                             Ship to Distributor
                                         </button>
