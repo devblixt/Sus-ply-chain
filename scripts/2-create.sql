@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS supplychainDB;
+CREATE DATABASE supplychainDB;
+
 USE supplychainDB;
 
 CREATE TABLE user(
