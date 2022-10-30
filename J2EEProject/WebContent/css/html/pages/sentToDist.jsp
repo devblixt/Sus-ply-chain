@@ -12,35 +12,56 @@ response.setContentType("text/html");
 if(session!=null){
 int err = (Integer)session.getAttribute("errorType");
 System.out.println("errorType = "+ err);
+String msg = "";
 
-out.print("<script type=\"text/javascript\">");
+//out.print("<script type=\"text/javascript\">");
 //out.print("alert('Successfully Sent to Distributor!!!');");
 //out.print("location='suptodist.jsp';");
 //out.print("</script>");
 
 switch(err){
 case 0:
-	out.print("alert('Successfully Sent to Distributor!!!');");
+	msg = "alert('Successfully Sent to Distributor!!!');";
+	//out.print("alert('Successfully Sent to Distributor!!!');");
 	break;
 case 1:
-	out.print("alert('You don't have enough stock for this. Please add stock.');");
+	msg = "alert('You do not have enough stock for this. Please add stock.');";
+	// out.print("alert('You don't have enough stock for this. Please add stock.');");
 	System.out.println("attempted alert");
 	break;
 case 2:
 	int p_id = (Integer) session.getAttribute("p_id");
-	out.print("alert('Product with ID "+p_id+" does not exist!! ');");
+	msg = "alert('Product with ID "+p_id+" does not exist!! ');";
+	// out.print("alert('Product with ID "+p_id+" does not exist!! ');");
 	break;
 case 3:
 	int d_id = (Integer) session.getAttribute("d_id");
-	out.print("alert('Distributor with ID "+d_id+" does not exist!! ');");
+	msg = "alert('Distributor with ID "+d_id+" does not exist!! ');";
+	//out.print("alert('Distributor with ID "+d_id+" does not exist!! ');");
 	break;
 default:
-	out.print("alert('An unexpected error occurred. Please Try again!! ');");
+	msg = "alert('An unexpected error occurred. Please Try again!! ');";
+	//out.print("alert('An unexpected error occurred. Please Try again!! ');");
 }
 //out.print("alert('You don't have enough stock for this. Please add stock.');");
 
+//out.print("location='suptodist.jsp';");
+//out.print("</script>");
+
+out.print("<script type=\"text/javascript\">");
+out.print(msg);
 out.print("location='suptodist.jsp';");
 out.print("</script>");
+}
+else
+{
+	// out.print("Please login first");
+	// request.getRequestDispatcher("login.jsp").include(request, response);
+	
+	out.println("<script type=\"text/javascript\">");
+    out.println("alert('Please log in!');");
+    out.println("location='sign-in.jsp';");
+    out.println("</script>");
 }
 %>
 </body>
