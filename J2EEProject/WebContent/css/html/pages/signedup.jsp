@@ -10,15 +10,14 @@
 <%
 response.setContentType("text/html");
 if(session!=null){
-	String name = (String)session.getAttribute("userid");
-	String p_id = (String)session.getAttribute("p_id");
-	out.print("Hello, user with ID: "+name+" ! Product has been added. You will be redirected shortly.");
-	int utype = (Integer)session.getAttribute("usertype");
+	String newuserid = (String)session.getAttribute("newuserid");
+	String newusertype = (String)session.getAttribute("newusertype");
+	out.print("Hello, user with ID: "+ newuserid +" ! You will be redirected shortly to sign in.");
 	//response.sendRedirect("css/html/pages/addStock.jsp");
 	
 	out.print("<script type=\"text/javascript\">");
-    out.print("alert('Successfully Added Stock for Product with ID = "+p_id+" ! ');");
-    out.print("location='css/html/pages/addStock.jsp';");
+    out.print("alert('Successfully Added new "+ newusertype +" with ID = "+newuserid+" ! Please sign in.');");
+    out.print("location='sign-in.jsp';");
     out.print("</script>");
 }
 else
@@ -28,7 +27,7 @@ else
 	
 	out.println("<script type=\"text/javascript\">");
     out.println("alert('Please log in!');");
-    out.println("location='css/html/pages/sign-in.jsp';");
+    out.println("location='sign-in.jsp';");
     out.println("</script>");
 }
 // out.close();

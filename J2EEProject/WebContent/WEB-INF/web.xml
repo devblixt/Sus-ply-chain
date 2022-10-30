@@ -15,7 +15,7 @@
     <servlet-name>StudentServlet</servlet-name>
     <servlet-class>StudentServlet</servlet-class>
   </servlet>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>

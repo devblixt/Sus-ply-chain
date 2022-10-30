@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 //import java.sql.Connection;
 //import java.sql.DriverManager;
 //import java.sql.PreparedStatement;
@@ -103,7 +103,7 @@ public class AddServlet extends HttpServlet {
             }
             else { 
                 // if item exists and supplier HAS it, then irrespective of what they enter for other details, they can update qty.
-                PreparedStatement st = con.prepareStatement("UPDATE has SET p_qty = p_qty + ? WHERE p_id = ? AND s_id = ?;");
+                PreparedStatement st = con.prepareStatement("UPDATE has SET has_qty = has_qty + ? WHERE p_id = ? AND s_id = ?;");
                 st.setInt(1, p_qty);
                 st.setString(2, p_id);
                 st.setString(3, s_id);
@@ -114,6 +114,7 @@ public class AddServlet extends HttpServlet {
             if(result>0) {
                 System.out.println("successfully added!");
                 RequestDispatcher rd = request.getRequestDispatcher("css/html/pages/addedYes.jsp");
+                session.setAttribute("p_id", p_id);
                 rd.forward(request, response);
             
 //                out.println("<script type=\"text/javascript\">");

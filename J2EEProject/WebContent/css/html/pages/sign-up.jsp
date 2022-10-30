@@ -74,13 +74,13 @@
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">Create an account</h1>
                             </div>
-                            <form action="${pageContext.request.contextPath}/SignupServlet">
+                            <form action="${pageContext.request.contextPath}/SignupServlet" method="post">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
                                     <label for="email">Your User ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
-                                        <input type="text" class="form-control" placeholder="ID" id="email" name="email" required>
+                                        <input type="text" class="form-control" placeholder="ID" id="userid" name="userid" required>
                                     </div>  
                                 </div>
                                 <div class="form-group mb-4">
@@ -128,16 +128,16 @@
                                         <label for="text">Your User Type</label>
                                         <div class="input-group">
                                             <select name="usertype" id="usertype">
-                                                <option value="javascript">Supplier</option>
-                                                <option value="php">Distributor</option>
-                                                <option value="java">Retailer</option>
-                                                <option value="golang">Customer</option>
+                                                <option value="Supplier">Supplier</option>
+                                                <option value="Distributor">Distributor</option>
+                                                <option value="Retailer">Retailer</option>
+                                                <option value="Customer">Customer</option>
                                               </select>
                                         </div>  
                                     </div>
                                     <!-- End of Form -->
                                     <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="terms">
+                                        <input class="form-check-input" type="checkbox" value="" id="terms" required>
                                         <label class="form-check-label" for="terms">
                                             I agree to the <a href="#">terms and conditions</a>
                                         </label>
