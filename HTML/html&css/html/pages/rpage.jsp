@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title>Distributor Dashboard</title>
+    <title>Retailer Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="title" content="Pixel Bootstrap 5 - Sign in" />
     <meta name="author" content="Themesberg" />
@@ -124,7 +124,7 @@ padding:20px;
                             <div
                                 class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <h1 class="mb-0 h3">Inventory of Distributor  
+                                    <h1 class="mb-0 h3">Inventory of Retailer   
                                     <% 
                                     String s_id = (String)session.getAttribute("userid");
                                     out.println(s_id);
@@ -145,7 +145,7 @@ padding:20px;
                             		int u_type = (Integer)session.getAttribute("usertype");
                             		
                              		if(u_type == 0){
-	                             		PreparedStatement checker = con.prepareStatement("SELECT * FROM product NATURAL JOIN dist_inv WHERE d_id = ? ;");
+	                             		PreparedStatement checker = con.prepareStatement("SELECT * FROM product NATURAL JOIN retail_inv WHERE r_id = ? ;");
 	                             		
 	                             		checker.setString(1, s_id); 
 	                             		ResultSet rs = checker.executeQuery();
@@ -158,7 +158,7 @@ padding:20px;
 	                                    out.println("<tr>");
 	                                    out.println("<td scope='row'>"+rs.getString("p_id")+"</td>");
 	                                    out.println("<td scope='row'>"+rs.getString("p_name")+"</td>");
-	                                    out.println("<td scope='row'>"+rs.getString("qty")+"</td>");
+	                                    out.println("<td scope='row'>"+rs.getString("has_qty")+"</td>");
 	                                    // Get the data from rows, put within td
 	                                    out.println("</tr>");
 	                                    }
@@ -190,12 +190,12 @@ padding:20px;
                             <div
                                 class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                                 <div class="text-center text-md-center mb-4 mt-md-0">
-                                    <h1 class="mb-0 h3">Distributor Options</h1>
+                                    <h1 class="mb-0 h3">Retailer Options</h1>
                                 </div>
                                 <div class="text-center text-md-center mb-4 mt-md-0">
                                     <a href="addStock.jsp" class="text-default me-3">
                                         <button class="btn btn-outline-primary" type="button">
-                                            Ship to Retailer
+                                            Deliver to Customer
                                         </button>
                                     </a>
                                     <!-- </button> -->
