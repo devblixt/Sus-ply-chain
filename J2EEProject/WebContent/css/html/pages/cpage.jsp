@@ -127,6 +127,7 @@ padding:20px;
                                     <h1 class="mb-0 h3">Orders of Customer   
                                     <% 
                                     String s_id = (String)session.getAttribute("userid");
+                                    System.out.println(s_id);
                                     out.println(s_id);
                                     %>
                                     </h1>
@@ -167,7 +168,7 @@ padding:20px;
                              		} else{
                              			out.println("<script type=\"text/javascript\">");
                              		    out.println("alert('Invalid login');");
-                             		    out.println("location='css/html/pages/sign-in.jsp';");
+                             		    out.println("location='sign-in.jsp';");
                              		    out.println("</script>");
                              		}
                                     %>
